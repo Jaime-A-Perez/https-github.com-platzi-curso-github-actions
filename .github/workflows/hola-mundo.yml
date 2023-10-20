@@ -1,0 +1,10 @@
+name: Hello-world
+on: [push]
+jobs:
+  execute-scritp: 
+    runs-on: macos-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: run
+        run: swift greeting.swift
