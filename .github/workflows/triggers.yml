@@ -1,0 +1,52 @@
+name: Trigger-practice
+on: 
+  push:
+    branches:
+      - 'main'
+    paths:
+      - '**.js'
+    tags:
+      - v1.**
+  issues: 
+    types: [opened, edited, milestoned]
+  fork:
+  pull_request:
+    types: 
+      - opened
+    branches: 
+      -'releases/**'
+    paths:
+      -'**.js'
+  issue_comment:
+    types: [created, deleted]  
+  workflow_dispatch:
+    inputs:
+      lenguaje_favorito:
+        description: 'Lenguaje favorito'
+        default: Swift
+        required: true
+        type: choice
+        options:
+        - Python
+        - JavaScript
+        - Go
+        - Swift
+        - Dart
+      nombre:
+        description: 'Tu nombre'
+        required: true
+        default: Juan
+        type: string
+  schedule:
+    - cron: '15 22 * * *'
+jobs:
+  practice-trigger:
+    runs-on: macos-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: run
+        run: swift greeting.swift
+    
+    
+    
