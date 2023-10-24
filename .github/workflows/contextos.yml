@@ -1,0 +1,8 @@
+name: Contexts
+on: push
+jobs: 
+  check-main:
+    if: ${{ github.ref == 'ref/head/main' }} 
+    runs-on: macos-latest
+    steps:
+      - run: echo "Deployment in the branch $GITHUB_REF"
