@@ -6,7 +6,8 @@ on:
       - 'main'
       - 'aprendiendo-github-actions'
     paths:
-      - '**.js'
+      - '**.swift'
+      - '**.yml'
     tags:
       - v1.**
   issues: 
@@ -18,7 +19,8 @@ on:
     branches: 
       -'releases/**'
     paths:
-      -'**.js'
+      -'**.swift'      
+      - '**.yml'
   issue_comment:
     types: [created, deleted]  
   workflow_dispatch:
@@ -37,7 +39,7 @@ on:
       nombre:
         description: 'Tu nombre'
         required: true
-        default: Juan
+        default: Jaime
         type: string
   schedule:
     - cron: '15 22 * * *'
