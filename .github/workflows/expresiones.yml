@@ -1,0 +1,28 @@
+name: Roller-Coaster-Height-Check
+run-name: Roller-Coaster-Height-Check
+on:
+  workflow_dispatch:
+    inputs:
+      height:
+        description: 'Height  in cm'
+        required: true
+        type: integer
+      name:
+        description: 'Your name'
+        required: true
+        default: 'James'
+        type: string
+jobs:
+  can_ride:
+    if: ${{ inputs.height >= 120 }}
+    runs-on: macos-latest
+    steps:
+      - name: Run script
+        run: echo ${{ inputs.name }} can ride the roller coaster
+
+  cannot_ride:
+    if: ${{ inputs.height <= 120 }}
+    runs-on: macos-latest
+    steps:
+      - name: Run script
+        run:  echo ${{ inputs.name }} cannot ride the roller coaster, but there are other fun rides for ${{ inputs.name }}
