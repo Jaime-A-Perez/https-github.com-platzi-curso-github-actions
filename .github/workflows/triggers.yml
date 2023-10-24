@@ -1,8 +1,10 @@
 name: Trigger-practice
+run-name: Trigger-practice
 on: 
   push:
     branches:
       - 'main'
+      - 'aprendiendo-github-actions'
     paths:
       - '**.js'
     tags:
